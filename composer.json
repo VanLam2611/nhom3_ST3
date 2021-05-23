@@ -1,10 +1,17 @@
 {
-    "name": "laravel/laravel",
+    "name": "devopsthinh/package-article",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Manage article",
     "keywords": [
         "framework",
         "laravel"
+    ],
+    "authors": [ 
+        {
+            "name": "DevOpsThinh",
+            "email": "nguyentruongthinhvn2020@gmail.com",
+            "homepage": "http://blogv7.net"
+        }   
     ],
     "license": "MIT",
     "require": {
