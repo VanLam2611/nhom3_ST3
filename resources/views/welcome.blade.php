@@ -174,38 +174,7 @@
     <div class="content">
         <div class="container">
             <div class="row">
-                <div class="col-10">
-                    <?php foreach($post as $value){?>
-                    <div class="post-user">
-                        <div class="name-acc">{{$value->getUser->name}}</div>
-                        <hr>
-                        <div class="title-post text-secondary">
-                            <h4>{{$value->title}}</h4>
-                        </div>
-
-                        <!-- <div class="type-post">Type</div> -->
-                        <div class="content-post">{{$value->content}}</div>
-                        <div class="comment">
-                            <button class="btn btn-primary">Comment</button>
-                        </div>
-                    </div>
-                    <br>
-                    <?php } ?>
-                </div>
-                <div class="col-2">
-                    <div class="all-type">
-                        <h2>ALL TYPE</h2>
-                        <?php foreach($type as $value){ ?>
-                        <div class="type-name">
-                            <a href="">{{$value->type_name}}</a></div>
-                        <?php } ?>
-                        <!-- <?php foreach($post as $value){ ?>
-                        <div class="post"><?=$value->title?></div>
-                        <div class="type">{{$value->posttype->type_name }}</div>
-                        <?php } ?> -->
-                    </div>
-
-                </div>
+               <p><strong>This is a main content</strong></p>
             </div>
         </div>
     </div>
