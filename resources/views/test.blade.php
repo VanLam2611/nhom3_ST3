@@ -1,0 +1,1 @@
+<h1>{{$dataUser->name}}</h1>

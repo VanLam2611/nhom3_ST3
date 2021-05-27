@@ -15,6 +15,9 @@ class Post extends Model
         return $this->hasOne('App\Posttype','type_id','type_id');
     }
     public function getUser(){
-        return $this->hasOne('App\User','user_id','post_id');
+        return $this->hasOne('App\User','user_id','user_id');
+    }
+    public function getCommant(){
+        return $this->belongsTo('App\Commant','post_id');
     }
 }

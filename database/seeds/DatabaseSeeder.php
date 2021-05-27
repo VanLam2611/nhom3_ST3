@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -18,6 +17,7 @@ class DatabaseSeeder extends Seeder
             Posttype::class,
             Role::class,
             UserSeeder::class,
+            CommantSeeder::class,
         ]);
     }
 }

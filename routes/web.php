@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,24 +14,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');//welcome.blade.php
-// });
-// Route::get('/admin','WelComeController@admin')->middleware('checkage');
-// Route::get('/','WelComeController@hello');
-// Route::get('/hello','WelComeController@about');
-// Route::get('/pack','WelComeController@pack');
-
-
 Auth::routes();
 
 //Route::middleware('auth')->group(function(){
-   
-    Route::get('/home', 'WelComeController@loginCorrect');
-    Route::get('', 'WelComeController@getLoginUser');
-    Route::post('', 'WelComeController@postLoginUser');
-    Route::get('/post','WelComeController@post');
 
-    Route::get('/home','WelComeController@getPostAll');
-    Route::get('/home','WelComeController@getCustomer');
-//});
+Route::post('/login', 'WelComeController@postLogin',function(){
+    return redirect('/home');
+});
+
+
+Route::get('/home','WelComeController@getPostAll');
+
+//Create post
+Route::get('/post','PostController@create');
+Route::post('home','PostController@store')->name('home.store');
+
+//Detail post
+Route::get('home/show/{post_id}','PostController@show');
+
+//Comment post
+Route::get('home/comment/{post_id}','CommantController@writeCommant');
+
+// //register
+// Route::post('/auth/register','RegisterController@create');
+
+// //search
+Route::get('/search', 'HomeController@search')->name('search');
+
+//ADMIN
+Route::get('admin',function(){
+    return view('homeAdmin');
+});
+Route::get('admin/user',function(){
+    return view('master.userManage');
+});
+
+
