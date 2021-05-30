@@ -9,7 +9,13 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     use Notifiable;
-    //use HasRoles;
+    use HasRoles;
+
+    /**
+     * The database table used by the model
+     * @var string
+    */
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.

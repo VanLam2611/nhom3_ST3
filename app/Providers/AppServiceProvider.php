@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,11 +19,15 @@ class AppServiceProvider extends ServiceProvider
 
     /**
      * Bootstrap any application services.
-     *
+     * Author: Thinh
      * @return void
      */
     public function boot()
     {
-        //
+        // Index Lengths & MySQL / MariaDB: The max length of the columns
+        // in the hybrid index can only be 125 characters due to using Spatie package
+        // (Prerequisites)
+
+        Schema::defaultStringLength(125);
     }
 }
