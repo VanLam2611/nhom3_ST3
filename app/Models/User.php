@@ -1,13 +1,23 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\Access\Authorizable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
-class User extends Authenticatable
+/**
+ * User Data model: Use Features of the Spatie package.
+ * Author: Thịnh
+*/
+class User extends Authenticatable implements  Authorizable ,AuthenticatableContract, CanResetPasswordContract
 {
+    use Model, CanResetPassword;
     use Notifiable;
     use HasRoles;
 
