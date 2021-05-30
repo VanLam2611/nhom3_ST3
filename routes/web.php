@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Enable the Manager middleware
+Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'manager'),
+    function () {
+Route::get('users', 'UsersController@index');
+});
