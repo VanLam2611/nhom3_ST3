@@ -87,7 +87,7 @@
                 TDC Student
             </div>
 
-            <div class="quote">Laravel project of group III!</div>
+            <div class="quote">Laravel project of group 3!</div>
 
         </div>
     </div>

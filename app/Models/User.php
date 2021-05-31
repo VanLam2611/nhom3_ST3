@@ -2,30 +2,19 @@
 
 namespace App\Models;
 
+
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Contracts\Auth\Access\Authorizable;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Auth\Passwords\CanResetPassword;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
+
 /**
  * User Data model: Use Features of the Spatie package.
  * Author: Thịnh
-*/
-class User extends Authenticatable implements  Authorizable ,AuthenticatableContract, CanResetPasswordContract
+ */
+class User extends Authenticatable implements MustVerifyEmail
 {
-    use Model, CanResetPassword;
-    use Notifiable;
-    use HasRoles;
-
-    /**
-     * The database table used by the model
-     * @var string
-    */
-    protected $table = 'users';
+    use HasRoles, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -53,4 +42,30 @@ class User extends Authenticatable implements  Authorizable ,AuthenticatableCont
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    /**
+     * One-One relational: User<-Profile
+     */
+    public function profile()
+    {
+        return $this->hasOne('App\Models\Profile');
+    }
+
+    public function article()
+    {
+        return $this->hasOne('App\Models\Article');
+    }
+
+    public function articles()
+    {
+        return $this->hasMany('App\Models\Article');
+    }
+
+    public function comment()
+    {
+        return $this->hasOne('App\Models\Comment');
+    }
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
 }

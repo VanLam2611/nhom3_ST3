@@ -1,7 +1,9 @@
 <?php
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+use App\Models\User;
+use App\Http\Resources\UserCollection;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +30,7 @@ Route::post('article', 'ArticleController@store');
 Route::put('article', 'ArticleController@store');
 // Delete Articles
 Route::delete('article/{id}', 'ArticleController@destroy');
+
+Route::get('/users', function() {
+    return new UserCollection(User::all());
+});
