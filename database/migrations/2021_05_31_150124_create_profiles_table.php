@@ -18,7 +18,7 @@ class CreateProfilesTable extends Migration
             $table->bigInteger('user_id');
             $table->string('facebookUsername', 200);
             $table->string('address', 200);
-            $table->text('bio');
+            $table->text('bio', 500);
             $table->timestamps();
         });
     }

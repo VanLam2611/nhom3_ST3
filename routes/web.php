@@ -47,6 +47,10 @@ Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 Route::post('/comment', 'CommentsController@newComment');
 
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
+
 // Registration routes
 Route::get('users/register', 'Auth\RegisterController@showRegistrationForm');
 Route::post('users/register', 'Auth\RegisterController@register');
@@ -64,6 +68,3 @@ Route::post('upload', 'ImagesController@store');
 Route::post('imageupload', 'ImagesController@storeImage');
 Route::post('cropimage', 'ImagesController@storeCroppedImage');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
