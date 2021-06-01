@@ -9,3 +9,4 @@ $factory->define(App\Models\Article::class, function (Faker $faker) {
         'content' => $faker->text(500)
     ];
 });
+

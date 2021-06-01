@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use Response;
 
 class BlogController extends Controller
 {
@@ -16,8 +17,11 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::paginate(10);
         return view('blog.index', compact('articles'));
+        // $posts = Article::paginate(10);
+        // $response = Response::json($posts,200);
+        // return $response;
     }
      /**
      * Display the specified resource.
