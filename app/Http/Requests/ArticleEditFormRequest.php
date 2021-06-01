@@ -13,7 +13,7 @@ class ArticleEditFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class ArticleEditFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required',
+            'content'=> 'required',
+            'categories' => 'required',
         ];
     }
 }
