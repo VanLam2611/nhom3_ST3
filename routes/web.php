@@ -18,16 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Auth::routes();
-Route::get('/', 'PagesController@home');
-Route::get('/about', 'PagesController@about');
-Route::get('/contact', 'PagesController@contact');
-Route::get('users/register', 'Auth\RegisterController@showRegistrationForm')->name('login');
-Route::post('users/register', 'Auth\RegisterController@register');
-Route::get('users/logout', 'Auth\LoginController@logout');
-Route::get('users/login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('users/login', 'Auth\LoginController@login');
-
 // Enable the Manager middleware
 Route::group(
     array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'manager'),
@@ -35,13 +25,31 @@ Route::group(
         Route::get('users', ['as' => 'admin.user.index', 'uses' => 'UsersController\
         @index']);
         Route::get('users', 'UsersController@index');
+        Route::get('roles', 'RolesController@index');
         Route::get('roles/create', 'RolesController@create');
         Route::post('roles/create', 'RolesController@store');
-
+        Route::get('users/{id?}/edit', 'UsersController@edit');
+        Route::post('users/{id?}/edit', 'UsersController@update');
+        Route::get('/', 'PagesController@home');
         Route::get('articles', 'ArticlesController@index');
         Route::get('articles/create', 'ArticlesController@create');
         Route::post('articles/create', 'ArticlesController@store');
         Route::get('articles/{id?}/edit', 'ArticlesController@edit');
         Route::post('articles/{id?}/edit', 'ArticlesController@update');
+        Route::get('categories', 'CategoriesController@index');
+        Route::get('categories/create', 'CategoriesController@create');
+        Route::post('categories/create', 'CategoriesController@store');
     }
 );
+
+Route::get('/', 'PagesController@home');
+Route::get('/about', 'PagesController@about');
+Route::get('/contact', 'PagesController@contact');
+Route::post('/comment', 'CommentsController@newComment');
+Route::get('users/register', 'Auth\RegisterController@showRegistrationForm');
+Route::post('users/register', 'Auth\RegisterController@register');
+Route::get('users/logout', 'Auth\LoginController@logout');
+Route::get('users/login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('users/login', 'Auth\LoginController@login');
+Route::get('/blog', 'BlogController@index');
+Route::get('/blog/{slug?}', 'BlogController@show');

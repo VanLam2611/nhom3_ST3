@@ -5,8 +5,8 @@
     <div class="container col-md-10 col-md-offset-2">
         <div class="card mt-5">
             <div class="card-body">
-                <h2 class="header">{{ $post->title }}</h2>
-                <p> {{ $post->content }} </p>
+                <h2 class="header">{{ $article->title }}</h2>
+                <p> {{ $article->content }} </p>
             </div>
             <div class="clearfix"></div>
         </div>
@@ -34,7 +34,7 @@
                     @endif
 
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="hidden" name="post_id" value="{{ $post->id }}">
+                    <input type="hidden" name="post_id" value="{{ $article->id }}">
                     <input type="hidden" name="post_type" value="App\Post">
                     <div class="form-group">
                         <legend>Comment</legend>

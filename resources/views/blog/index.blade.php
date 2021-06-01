@@ -10,14 +10,14 @@
             </div>
         @endif
 
-        @if ($posts->isEmpty())
+        @if ($articles->isEmpty())
             <p> There is no article.</p>
         @else
-            @foreach ($posts as $post)
+            @foreach ($articles as $article)
                 <div class="card mt-4">
-                    <div class="card-header"><a href="{{ action('BlogController@show', $post->slug) }}">{{ $post->title }}</a></div>
+                    <div class="card-header"><a href="{{ action('BlogController@show', $article->slug) }}">{{ $article->title }}</a></div>
                     <div class="card-body">
-                        {{ mb_substr($post->content,0,500) }}
+                        {{ mb_substr($article->content,0,500) }}
                     </div>
                 </div>
             @endforeach
