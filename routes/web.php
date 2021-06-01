@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Enable the Manager middleware
 Route::group(
@@ -47,16 +47,23 @@ Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 Route::post('/comment', 'CommentsController@newComment');
 
+// Registration routes
 Route::get('users/register', 'Auth\RegisterController@showRegistrationForm');
 Route::post('users/register', 'Auth\RegisterController@register');
+Auth::routes(['verify' => true]);
+
+// Authentication routes
 Route::get('users/logout', 'Auth\LoginController@logout');
 Route::get('users/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('users/login', 'Auth\LoginController@login');
+
 Route::get('/blog', 'BlogController@index');
 Route::get('/blog/{slug?}', 'BlogController@show');
-
-//Route::auth();
 
 Route::post('upload', 'ImagesController@store');
 Route::post('imageupload', 'ImagesController@storeImage');
 Route::post('cropimage', 'ImagesController@storeCroppedImage');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

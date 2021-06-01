@@ -11,11 +11,10 @@
                     Nhom 3
                 </h1>
 
-                <!-- <h3 class="text-center mt-2 editContent">{{ trans('main.subtitle') }}</h3> -->
-                <h3 class="text-center mt-2 editContent">{{ trans('Blogger') }}</h3>
+                <h3 class="text-center mt-2 editContent">{{ trans('main.subtitle') }}</h3>
 
                 <div class="text-center">
-                    <img src="https://th.bing.com/th/id/OIP.4pUOBcoNv3rrwo8A7dZTFQHaF-?w=256&h=206&c=7&o=5&pid=1.7" width="500" height="350" alt="">
+                    <img src="https://th.bing.com/th/id/OIP.s5YVEr6oG8n_s-qEgENYfAHaEK?w=312&h=180&c=7&o=5&pid=1.7" width="900" height="600" alt="">
                 </div>
 
             </div>
