@@ -1,11 +1,11 @@
 @extends('master')
-@section('title', 'All users')
+@section('title', 'All posts')
 @section('content')
 
     <div class="container col-md-10 col-md-offset-2">
         <div class="card mt-5">
             <div class="card-header">
-                <h5 class="float-left">All users</h5>
+                <h5 class="float-left">All Articles</h5>
                 <div class="clearfix"></div>
             </div>
             <div class="content">
@@ -14,29 +14,31 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                @if ($users->isEmpty())
-                    <p> There is no user.</p>
+                @if ($articles->isEmpty())
+                    <p> There is no article.</p>
                 @else
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Joined at</th>
+                                <th>Title</th>
+                                <th>Slug</th>
+                                <th>Created At</th>
+                                <th>Updated At</th>
 
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($users as $user)
+                            @foreach($articles as $article)
                                 <tr>
-                                    <td>{{ $user->id }}</td>
+                                    <td>{{ $article->id }}</td>
                                     <td>
-                                        <a href="{{ action('Admin\UsersController@edit', $user->id) }}">{{ $user->name }} </a>
+                                        <a href="{{ action('Admin\PostsController@edit', $article->id) }}">{{ $article->title }} </a>
                                     </td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->created_at }}</td>
+                                    <td>{{ $article->slug }}</td>
+                                    <td>{{ $article->created_at }}</td>
+                                    <td>{{ $article->updated_at }}</td>
                                 </tr>
                             @endforeach
                             </tbody>
