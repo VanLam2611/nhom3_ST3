@@ -53,3 +53,9 @@ Route::get('users/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('users/login', 'Auth\LoginController@login');
 Route::get('/blog', 'BlogController@index');
 Route::get('/blog/{slug?}', 'BlogController@show');
+
+//Route::auth();
+
+Route::post('upload', 'ImagesController@store');
+Route::post('imageupload', 'ImagesController@storeImage');
+Route::post('cropimage', 'ImagesController@storeCroppedImage');
