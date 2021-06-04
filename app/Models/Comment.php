@@ -8,10 +8,6 @@ class Comment extends Model
 {
     protected $guarded = ['id'];
 
-    protected $fillable = [
-        'content'  
-    ];
-
     public function article()
     {
         return $this->morphTo();

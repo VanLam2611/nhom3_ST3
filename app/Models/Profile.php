@@ -6,14 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'user_id', 'facebookUsername' ,'address', 'bio',
-    ];
+    protected $guarded = ['id'];
+    
     /**
      * One-One relational: Profile->User
      */

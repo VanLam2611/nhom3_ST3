@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleEditFormRequest;
+use App\Http\Requests\ArticleFormRequest;
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +22,7 @@ class ArticlesController extends Controller
     public function index()
     {
         $article = Article::all();
-        return view('backend.article.index', compact('article'));
+        return view('backend.articles.index', compact('articles'));
     }
 
     /**
@@ -31,7 +33,8 @@ class ArticlesController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('backend.articles.create', compact('categories'));
+        $tags = Tag::all();
+        return view('backend.articles.create', compact('categories', 'tags'));
     }
 
     /**
@@ -51,7 +54,9 @@ class ArticlesController extends Controller
         ));
 
         $aritcle->save();
+
         $aritcle->categories()->sync($request->get('categories'));
+        $aritcle->tags()->sync($request->get('tags'));
 
         return redirect('/admin/aritcles/create')->with('status', 'The aritcle has been created!');
     }
@@ -66,8 +71,10 @@ class ArticlesController extends Controller
     {
         $article = Article::whereId($id)->firstOrFail();
         $categories = Category::all();
+        $tags = Tag::all();
         $selectedCategories = $article->categories->pluck('id')->toArray();
-        return view('backend.articles.edit', compact('article', 'categories', 'selectedCategories'));
+        $selectedTags = $article->tags->pluck('id')->toArray();
+        return view('backend.articles.edit', compact('article', 'categories', 'tags', 'selectedCategories', 'selectedTags'));
     }
 
      /**
@@ -86,6 +93,7 @@ class ArticlesController extends Controller
 
         $article->save();
         $article->categories()->sync($request->get('categories'));
+        $article->tags()->sync($request->get('tags'));
 
         return redirect(action('Admin\articlesController@edit', $article->id))->with('status', 'The article has been updated!');
     }
