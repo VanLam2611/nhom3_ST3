@@ -24,6 +24,7 @@ class CreatePermissionTables extends Migration
             $table->bigIncrements('id');
             $table->string('name');       // For MySQL 8.0 use string('name', 125);
             $table->string('guard_name'); // For MySQL 8.0 use string('guard_name', 125);
+            $table->text('description', 300);
             $table->timestamps();
 
             $table->unique(['name', 'guard_name']);
@@ -84,13 +85,13 @@ class CreatePermissionTables extends Migration
                 ->references('id')
                 ->on($tableNames['roles'])
                 ->onDelete('cascade');
+            //$table->primary(['permission_id', 'role_id'], 'role_has_permissions_permission_id_role_id_primary');
+            $table->primary(['permission_id', 'role_id']);
 
-            $table->primary(['permission_id', 'role_id'], 'role_has_permissions_permission_id_role_id_primary');
+            app('cache')->forget(config('spatie.permission.cache'));
         });
-
-        app('cache')
-            ->store(config('permission.cache.store') != 'default' ? config('permission.cache.store') : null)
-            ->forget(config('permission.cache.key'));
+            //app('cache')->store(config('permission.cache.store') != 'default' ? config('permission.cache.store') : null);
+            //app('cache')->forget(config('permission.cache.key'));     
     }
 
     /**
