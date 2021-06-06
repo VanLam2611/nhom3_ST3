@@ -74,7 +74,7 @@ class ArticlesController extends Controller
         $tags = Tag::all();
         $selectedCategories = $article->categories->pluck('id')->toArray();
         $selectedTags = $article->tags->pluck('id')->toArray();
-        return view('backend.articles.edit', compact('article', 'categories', 'tags', 'selectedCategories', 'selectedTags'));
+        return view('backend.articles.edit', compact('article', 'categories', 'tags', 'selectedCategories', 'createTags'));
     }
 
      /**

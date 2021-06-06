@@ -51,6 +51,13 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="categories" class="col-lg-12 control-label">Tag</label>
+                        <div class="col-lg-12">
+                            <input type="text" class="form-control" id="tag" placeholder="Tag" name="tag">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-2">
                             <button type="reset" class="btn btn-default">Cancel</button>
                             <button type="submit" class="btn btn-primary">Submit</button>

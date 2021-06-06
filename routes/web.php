@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(
     array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'manager'),
     function () {
+        Route::get('/', 'PagesController@home');
         Route::get('users', ['as' => 'admin.user.index', 'uses' => 'UsersController\
         @index']);
         Route::get('users', 'UsersController@index');
@@ -30,7 +31,6 @@ Route::group(
         Route::post('roles/create', 'RolesController@store');
         Route::get('users/{id?}/edit', 'UsersController@edit');
         Route::post('users/{id?}/edit', 'UsersController@update');
-        Route::get('/', 'PagesController@home');
         Route::get('articles', 'ArticlesController@index');
         Route::get('articles/create', 'ArticlesController@create');
         Route::post('articles/create', 'ArticlesController@store');
@@ -43,6 +43,7 @@ Route::group(
 );
 
 Route::get('/', 'PagesController@home');
+Route::get('home', 'PagesController@home');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 Route::post('/comment', 'CommentsController@newComment');
