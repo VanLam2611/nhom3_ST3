@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
 class UserSeeder extends Seeder
 {
     /**
@@ -31,6 +32,13 @@ class UserSeeder extends Seeder
             'password' => bcrypt('00000000'),
             'address' => 'America',
             'role_id' => '1',
+        ]);
+        DB::table('users')->insert([
+            'name' => 'yasuo',
+            'email' => 'hasagi@gmail.com',
+            'password' => bcrypt('00000001'),
+            'address' => 'Dau truong chan ly',
+            'role_id' => '4',
         ]);
     }
 }

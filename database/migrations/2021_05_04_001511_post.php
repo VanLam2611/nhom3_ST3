@@ -15,8 +15,8 @@ class Post extends Migration
     {
         Schema::create('post', function (Blueprint $table) {
             $table->id('post_id');
-            $table->string('title');
-            $table->string('content');
+            $table->string('title')->require;
+            $table->string('content')->require;
             $table->integer('type_id');
             $table->integer('user_id');
             $table->timestamp('failed_at')->useCurrent();

@@ -941,6 +941,7 @@ session_start();
 		<div class="wthree-form">
 			<h2>Fill out the form below to login</h2>
 			<form action="{{asset('admin')}}" method="post">
+			{{csrf_field()}}
 				<div class="form-sub-w3">
 					<input type="text" name="username" placeholder="Username " required="" />
 					<div class="icon-w3">

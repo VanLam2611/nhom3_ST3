@@ -3,144 +3,42 @@
 @section('homeadmin')
 
 <div class="set-value">
+    <form action="{{asset('admin/user/create')}}" method="get">
+        <button class="btn btn-primary mb-3" value="">New User</button>
+    </form>
     <table class="table">
         <thead>
             <tr>
                 <th scope="col">Id</th>
-                <th scope="col">Title Post</th>
-                <th scope="col">Content Post</th>
-                <th scope="col" width="10%">Type Post</th>
-                <th scope="col" width="10%">User Post</th>
-                <th scope="col" width="10%">CN</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col" width="10%">Password</th>
+                <th scope="col" width="10%">Address</th>
+                <th scope="col" width="10%">Role</th>
+                <th scope="col" width="10%">Chuc nang</th>
             </tr>
         </thead>
+
         <tbody>
+        @foreach($user as $value)
             <tr>
-                <th scope="row">1</th>
-                <td>Mark asfkjasfkajsbkajs kasncasjknaksjs</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea maiores pariatur recusandae perspiciatis cupiditate consequuntur sint, delectus quaerat inventore velit nostrum quod. Rerum recusandae vero sed maxime? Accusamus, dignissimos magni.</td>
-                <td>Education</td>
-                <td>Jack ma </td>
+                <th scope="row">{{$value->user_id}}</th>
+                <td>{{$value->name}}</td>
+                <td>{{$value->email}}</td>
+                <td>{{$value->password}}</td>
+                <td>{{$value->address}}</td>
+                <td>{{$value->role->role_name}}</td>
                 <td>
-                    <form action="{{asset('admin/post/update?id=')}}" method="get">
+                    <form action="{{asset('')}}admin/user/update/{{$value->user_id}}" method="get">
                         <button class="btn-success">Update</button>
                     </form>
-                    <form action="{{asset('admin/post/delete')}}" method="get">
+                    <form action="{{asset('')}}admin/user/delete/{{$value->user_id}}" method="get">
                         <button class="btn-danger">Delete</button>
                     </form>
                 </td>
-
             </tr>
+            @endforeach
         </tbody>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark asfkjasfkajsbkajs kasncasjknaksjs</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea maiores pariatur recusandae perspiciatis cupiditate consequuntur sint, delectus quaerat inventore velit nostrum quod. Rerum recusandae vero sed maxime? Accusamus, dignissimos magni.</td>
-                <td>Education</td>
-                <td>Jack ma </td>
-                <td>
-                    <form action="{{asset('admin/post/update?id=')}}" method="get">
-                        <button class="btn-success">Update</button>
-                    </form>
-                    <form action="{{asset('admin/post/delete')}}" method="get">
-                        <button class="btn-danger">Delete</button>
-                    </form>
-                </td>
-
-            </tr>
-        </tbody>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark asfkjasfkajsbkajs kasncasjknaksjs</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea maiores pariatur recusandae perspiciatis cupiditate consequuntur sint, delectus quaerat inventore velit nostrum quod. Rerum recusandae vero sed maxime? Accusamus, dignissimos magni.</td>
-                <td>Education</td>
-                <td>Jack ma </td>
-                <td>
-                    <form action="{{asset('admin/post/update?id=')}}" method="get">
-                        <button class="btn-success">Update</button>
-                    </form>
-                    <form action="{{asset('admin/post/delete')}}" method="get">
-                        <button class="btn-danger">Delete</button>
-                    </form>
-                </td>
-
-            </tr>
-        </tbody>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark asfkjasfkajsbkajs kasncasjknaksjs</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea maiores pariatur recusandae perspiciatis cupiditate consequuntur sint, delectus quaerat inventore velit nostrum quod. Rerum recusandae vero sed maxime? Accusamus, dignissimos magni.</td>
-                <td>Education</td>
-                <td>Jack ma </td>
-                <td>
-                    <form action="{{asset('admin/post/update?id=')}}" method="get">
-                        <button class="btn-success">Update</button>
-                    </form>
-                    <form action="{{asset('admin/post/delete')}}" method="get">
-                        <button class="btn-danger">Delete</button>
-                    </form>
-                </td>
-
-            </tr>
-        </tbody>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark asfkjasfkajsbkajs kasncasjknaksjs</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea maiores pariatur recusandae perspiciatis cupiditate consequuntur sint, delectus quaerat inventore velit nostrum quod. Rerum recusandae vero sed maxime? Accusamus, dignissimos magni.</td>
-                <td>Education</td>
-                <td>Jack ma </td>
-                <td>
-                    <form action="{{asset('admin/post/update?id=')}}" method="get">
-                        <button class="btn-success">Update</button>
-                    </form>
-                    <form action="{{asset('admin/post/delete')}}" method="get">
-                        <button class="btn-danger">Delete</button>
-                    </form>
-                </td>
-
-            </tr>
-        </tbody>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark asfkjasfkajsbkajs kasncasjknaksjs</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea maiores pariatur recusandae perspiciatis cupiditate consequuntur sint, delectus quaerat inventore velit nostrum quod. Rerum recusandae vero sed maxime? Accusamus, dignissimos magni.</td>
-                <td>Education</td>
-                <td>Jack ma </td>
-                <td>
-                    <form action="{{asset('admin/post/update?id=')}}" method="get">
-                        <button class="btn-success">Update</button>
-                    </form>
-                    <form action="{{asset('admin/post/delete')}}" method="get">
-                        <button class="btn-danger">Delete</button>
-                    </form>
-                </td>
-
-            </tr>
-        </tbody>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark asfkjasfkajsbkajs kasncasjknaksjs</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea maiores pariatur recusandae perspiciatis cupiditate consequuntur sint, delectus quaerat inventore velit nostrum quod. Rerum recusandae vero sed maxime? Accusamus, dignissimos magni.</td>
-                <td>Education</td>
-                <td>Jack ma </td>
-                <td>
-                    <form action="{{asset('admin/post/update?id=')}}" method="get">
-                        <button class="btn-success">Update</button>
-                    </form>
-                    <form action="{{asset('admin/post/delete')}}" method="get">
-                        <button class="btn-danger">Delete</button>
-                    </form>
-                </td>
-
-            </tr>
-        </tbody>
-        
     </table>
 </div>
 

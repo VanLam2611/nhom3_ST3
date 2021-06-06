@@ -36,7 +36,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $table = 'users';
-    
+    public $primaryKey = 'user_id';
     protected $hidden = [
         'password', 'remember_token',
     ];

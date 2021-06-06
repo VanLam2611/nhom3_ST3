@@ -11,7 +11,7 @@ class Post extends Model
     public $primaryKey = 'post_id';
     public $timestamps = false;
 
-    public function posttype(){
+    public function getPostType(){
         return $this->hasOne('App\Posttype','type_id','type_id');
     }
     public function getUser(){
