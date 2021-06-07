@@ -12,7 +12,7 @@
                     Learning Laravel - Nhom 3
                 </h1>
 
-                <h3 class="text-center mt-2 editContent">{{ trans('*****************************') }}</h3>
+                <h3 class="text-center mt-2 editContent">{{ trans('main.subtitle') }}</h3>
 
                 <div class="text-center">
                     <img src="https://www.maisonfamillegranit.com/wp-content/uploads/2017/03/Quatorze_illustration-famille.png" width="400" height="600" alt="">

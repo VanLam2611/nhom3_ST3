@@ -72,6 +72,33 @@ return [
         ],
     ],
 
+
+    'driver' => env('MAIL_DRIVER', 'smtp'),
+
+    /*
+    |----------------------------------------------------------------------
+    | SMTP Host Address
+    |----------------------------------------------------------------------
+    |
+    | Here you may provide the host address of the SMTP server used by your
+    | applications. A default option is provided that is compatible with
+    | the Mailgun mail service which will provide reliable deliveries.
+    | 
+    */
+    'host' => env('MAIL_HOST', 'smtp.Mailtrap.io'),
+
+    /*
+    |----------------------------------------------------------------------
+    | SMTP Host Port
+    |----------------------------------------------------------------------
+    |
+    | This is the SMTP port used by your application to deliver e-mails to
+    | users of the application. Like the host we have set this value to
+    | stay compatible with the Mailgun e-mail application by default.
+    | 
+    */
+    'port' => env('MAIL_PORT', 465),
+
     /*
     |--------------------------------------------------------------------------
     | Global "From" Address
@@ -84,8 +111,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'thinhnt.65.student@fit.tdc.edu.vn'),
+        'name' => env('MAIL_FROM_NAME', 'Nguyen Truong Thinh'),
     ],
 
     /*
@@ -98,6 +125,18 @@ return [
     | of the emails. Or, you may simply stick with the Laravel defaults!
     |
     */
+
+    /*
+    |----------------------------------------------------------------------
+    | E-Mail Encryption Protocol
+    |----------------------------------------------------------------------
+    |
+    | Here you may specify the encryption protocol that should be used when
+    | the application send e-mail messages. A sensible default using the
+    | transport layer security protocol should provide great security.
+    | 
+    */
+    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
 
     'markdown' => [
         'theme' => 'default',
