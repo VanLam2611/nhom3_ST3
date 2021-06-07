@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 // Enable the Manager middleware
 Route::group(
     array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'manager'),
@@ -43,29 +38,36 @@ Route::group(
 );
 
 Route::get('/', 'PagesController@home');
+Route::get('/', 'PagesController@home');
 Route::get('home', 'PagesController@home');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 Route::post('/comment', 'CommentsController@newComment');
 
 Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');
-
 // Registration routes
 Route::get('users/register', 'Auth\RegisterController@showRegistrationForm');
 Route::post('users/register', 'Auth\RegisterController@register');
 Auth::routes(['verify' => true]);
-
-// Authentication routes
 Route::get('users/logout', 'Auth\LoginController@logout');
+// Authentication routes
 Route::get('users/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('users/login', 'Auth\LoginController@login');
 
 Route::get('/blog', 'BlogController@index');
 Route::get('/blog/{slug?}', 'BlogController@show');
+//Route::get('/home', 'HomeController@index')->name('home');
+
+Route::auth();
 
 Route::post('upload', 'ImagesController@store');
 Route::post('imageupload', 'ImagesController@storeImage');
 Route::post('cropimage', 'ImagesController@storeCroppedImage');
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('json', function () {
+    return App\Models\Article::paginate();
+});
+
 

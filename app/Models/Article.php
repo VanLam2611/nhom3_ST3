@@ -3,12 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use PhpParser\Node\Expr\FuncCall;
 
 class Article extends Model
 {
     protected $fillable = [
-        'user_id', 'title', 'content',
+        'user_id', 'title', 'content', 'slug', 'status',
     ];
 
     public function user()
@@ -21,13 +20,13 @@ class Article extends Model
      */
     public function tags()
     {
-        return $this->belongsToMany('App\Models\Tag');
+        return $this->belongsToMany('App\Models\Tag')->withTimestamps();
     }
     /**
      * Get all of the profiles' comments.
      */
     public function comments()
     {
-        return $this->morphMany('App\Comment', 'commentable');
+        return $this->morphMany('App\Comment', 'article');
     }
 }

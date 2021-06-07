@@ -1,17 +1,12 @@
 <?php
-
 namespace App\Models;
-
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\Model;
 
-/**
- * User Data model: Use Features of the Spatie package.
- * Author: Thịnh
- */
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasRoles, Notifiable;
