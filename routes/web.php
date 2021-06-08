@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Notifications\NewuserRegistered;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,10 +53,16 @@ Route::get('users/logout', 'Auth\LoginController@logout')->name('logout');
 // Registration routes
 Route::get('users/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('users/register', 'Auth\RegisterController@register');
+//Sending E-mails and Notifications
 Route::get('/', function () {
     return view('welcome');
 })->middleware('verified');
 Auth::routes(['verify' => true]);
+Route::get('/notify', function () {
+    User::find(1)->notify(new NewuserRegistered);
+    return view('notify');
+});
+Route::get('/send/email', 'HomeController@mail');
 Route::get('users/logout', 'Auth\LoginController@logout');
 // Password reset routes
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');

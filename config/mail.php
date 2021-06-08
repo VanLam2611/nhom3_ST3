@@ -36,7 +36,7 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+            'host' => env('MAIL_HOST', 'smtp.Mailtrap.io'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
@@ -50,7 +50,7 @@ return [
         ],
 
         'mailgun' => [
-            'transport' => 'mailgun',
+            'transport' => 'Mailgun',
         ],
 
         'postmark' => [
@@ -71,33 +71,6 @@ return [
             'transport' => 'array',
         ],
     ],
-
-
-    'driver' => env('MAIL_DRIVER', 'smtp'),
-
-    /*
-    |----------------------------------------------------------------------
-    | SMTP Host Address
-    |----------------------------------------------------------------------
-    |
-    | Here you may provide the host address of the SMTP server used by your
-    | applications. A default option is provided that is compatible with
-    | the Mailgun mail service which will provide reliable deliveries.
-    | 
-    */
-    'host' => env('MAIL_HOST', 'smtp.Mailtrap.io'),
-
-    /*
-    |----------------------------------------------------------------------
-    | SMTP Host Port
-    |----------------------------------------------------------------------
-    |
-    | This is the SMTP port used by your application to deliver e-mails to
-    | users of the application. Like the host we have set this value to
-    | stay compatible with the Mailgun e-mail application by default.
-    | 
-    */
-    'port' => env('MAIL_PORT', 465),
 
     /*
     |--------------------------------------------------------------------------

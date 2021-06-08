@@ -17,18 +17,11 @@
     <div class="card mt-4">
         <div class="card-header"><a href="{{ action('BlogController@show', $article->slug) }}">{{ $article->title }}</a></div>
         <div class="card-body">
-            {{ mb_substr($article->content,0,500) }}
+            {{ mb_substr($article->content,0,300) }}
         </div>
     </div>
     @endforeach
     @endif
-</div>
-
-</div>
-    <nav class="container col-md-2 col-md-offset-2">
-        <a class="btn btn-outline-primary" href="#">Older</a>
-        <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-    </nav>
-</div>
+    {!! $articles->render() !!}
 
 @endsection
