@@ -26,3 +26,61 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
     ];
 });
+
+$factory->define(App\Models\Article::class, function (Faker $faker) {
+    return [
+        'user_id' => App\Models\User::all()->random()->id,
+        'title' => $faker->sentence,
+        'content' => $faker->paragraph(random_int(3, 5))
+    ];
+});
+
+$factory->define(App\Models\Profile::class, function (Faker $faker) {
+    return [
+        'user_id' => App\Models\User::all()->random()->id,
+        'facebookUsername' => $faker->text(20),
+        'address' => $faker->city,
+        'bio' => $faker->paragraph(random_int(3, 5))
+    ];
+});
+
+$factory->define(App\Models\Tag::class, function (Faker $faker) {
+    return [
+        'name' => $faker->text(10)
+    ];
+});
+
+$factory->define(App\Models\Category::class, function (Faker $faker) {
+    return [
+        'name' => $faker->text(10)
+    ];
+});
+
+$factory->define(App\Models\Role::class, function (Faker $faker) {
+    return [
+        'name' => $faker->text(10),
+        'description' => $faker->text(100)
+    ];
+});
+
+$factory->define(App\Models\Comment::class, function (Faker $faker) {
+    return [
+        'user_id' => $faker->biasedNumberBetween(
+            $min = 1,
+            $max = 30,
+            $function = 'sqrt'
+        ),
+        'article_id' => $faker->biasedNumberBetween(
+            $min = 1,
+            $max = 30,
+            $function = 'sqrt'
+        ),
+        'content' => $faker->paragraph(random_int(3, 5)),
+        'commentable_id' => $faker->randomDigit,
+        'commentable_type' => function () {
+            $input = ['App\Models\Profile', 'App\Models\Article'];
+            $model = $input[mt_rand(0, count($input) - 1)];
+            return $model;
+        }
+    ];
+});

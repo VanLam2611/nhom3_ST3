@@ -36,7 +36,7 @@
                         <label for="email" class="col-lg-12 control-label">Email</label>
 
                         <div class="col-lg-12">
-                            <input type="email" class="form-control" id="email" placeholder="Email" name="email"
+                            <input type="text" class="form-control" id="email" placeholder="Email" name="email"
                                    value="{{ $user->email }}">
                         </div>
                     </div>
@@ -52,6 +52,33 @@
                                     </option>
                                 @endforeach
                             </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="facebookUsername" class="col-lg-12 control-label">Faceboook Username</label>
+
+                        <div class="col-lg-12">
+                            <input type="text" class="form-control" id="facebookUsername" placeholder="Facebook Username" name="facebookUsername"
+                                   value="{{ $user->facebookUsername }}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address" class="col-lg-12 control-label">Address</label>
+
+                        <div class="col-lg-12">
+                            <input type="text" class="form-control" id="address" placeholder="Address" name="address"
+                                   value="{{ $user->address }}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bio" class="col-lg-12 control-label">Bio</label>
+
+                        <div class="col-lg-12">
+                            <input type="text" class="form-control" id="bio" placeholder="Bio" name="bio"
+                                   value="{{ $user->bio }}">
                         </div>
                     </div>
 

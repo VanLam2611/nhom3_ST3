@@ -27,6 +27,8 @@ class UserEditFormRequest extends FormRequest
             'name' => 'required',
             'email' => 'required',
             'role' => 'required',
+            'address' => 'required',
+            'bio' => 'required',
             'password' => 'alpha_num|min:8|confirmed',
             'password_confirmation' => 'alpha_num|min:8',
         ];

@@ -1,5 +1,5 @@
 @extends('master')
-@section('title', 'View a post')
+@section('title', 'View an article')
 @section('content')
 
     <div class="container col-md-10 col-md-offset-2">
@@ -34,8 +34,8 @@
                     @endif
 
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="hidden" name="post_id" value="{{ $article->id }}">
-                    <input type="hidden" name="post_type" value="App\Post">
+                    <input type="hidden" name="article_id" value="{{ $article->id }}">
+                    <input type="hidden" name="article_type" value="App\Models\Article">
                     <div class="form-group">
                         <legend>Comment</legend>
                     </div>
@@ -55,5 +55,4 @@
             </div>
         </div>
     </div>
-
 @endsection

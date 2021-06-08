@@ -19,6 +19,7 @@ class BlogController extends Controller
     {
         $articles = Article::paginate(10);
         return view('blog.index', compact('articles'));
+        
         // $posts = Article::paginate(10);
         // $response = Response::json($posts,200);
         // return $response;
@@ -33,6 +34,6 @@ class BlogController extends Controller
     {
         $article = Article::whereSlug($slug)->firstOrFail();
         $comments = $article->comments()->get();
-        return view('blog.show', compact('article', 'comments'));
+        return view('blog.show', compact('articles', 'comments'));
     }
 }

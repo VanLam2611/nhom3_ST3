@@ -14,7 +14,12 @@ class Article extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
-
+    /**
+     * Get the tags for the article
+     */
+    public function categories() {
+        return $this->belongsToMany('App\Models\Category')->withTimestamps();
+    }
     /**
      * Get the tags for the article
      */
@@ -27,6 +32,6 @@ class Article extends Model
      */
     public function comments()
     {
-        return $this->morphMany('App\Comment', 'article');
+        return $this->morphMany('App\Models\Comment', 'article');
     }
 }

@@ -51,9 +51,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="categories" class="col-lg-12 control-label">Tag</label>
+                        <label for="tags" class="col-lg-12 control-label">Tag</label>
                         <div class="col-lg-12">
-                            <input type="text" class="form-control" id="tag" placeholder="Tag" name="tag">
+                            <input type="text" class="form-control" id="tag" placeholder="Tag" name="tags">
                         </div>
                     </div>
 

@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
 {
-    protected $guarded = ['id'];
+    protected $fillable = [
+        'user_id', 'facebookUsername', 'address', 'bio',
+        ];
     
     /**
      * One-One relational: Profile->User
@@ -20,6 +22,6 @@ class Profile extends Model
      */
     public function comments()
     {
-        return $this->morphMany('App\Comment', 'commentable');
+        return $this->morphMany('App\Models\Comment', 'commentable');
     }
 }

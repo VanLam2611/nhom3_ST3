@@ -23,6 +23,7 @@ Route::group(
         Route::get('users', ['as' => 'admin.user.index', 'uses' => 'UsersController\
         @index']);
         Route::get('users', 'UsersController@index');
+        Route::get('users/{id?}/show', 'UsersController@show');
         Route::get('roles', 'RolesController@index');
         Route::get('roles/create', 'RolesController@create');
         Route::post('roles/create', 'RolesController@store');
@@ -40,7 +41,7 @@ Route::group(
 );
 
 Route::get('/', 'PagesController@home');
-Route::get('home', 'PagesController@home');
+Route::get('/home', 'PagesController@home');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 Route::post('/comment', 'CommentsController@newComment');

@@ -1,5 +1,5 @@
 @extends('master')
-@section('title', 'All posts')
+@section('title', 'All Articles')
 @section('content')
 
     <div class="container col-md-10 col-md-offset-2">
@@ -34,7 +34,7 @@
                                 <tr>
                                     <td>{{ $article->id }}</td>
                                     <td>
-                                        <a href="{{ action('Admin\PostsController@edit', $article->id) }}">{{ $article->title }} </a>
+                                        <a href="{{ action('Admin\ArticlesController@edit', $article->id) }}">{{ $article->title }} </a>
                                     </td>
                                     <td>{{ $article->slug }}</td>
                                     <td>{{ $article->created_at }}</td>
@@ -47,6 +47,6 @@
                 @endif
             </div>
         </div>
+        {!! $articles->render() !!}
     </div>
-
 @endsection

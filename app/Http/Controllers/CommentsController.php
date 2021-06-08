@@ -11,7 +11,7 @@ class CommentsController extends Controller
 {
     public function newComment(CommentFormRequest $request)
     {
-        SweetAlert::message('You are working!');
+        alert()->message('You are working!');
         $comment = new Comment(array(
             'article_id' => $request->get('article_id'),
             'content' => $request->get('content'),

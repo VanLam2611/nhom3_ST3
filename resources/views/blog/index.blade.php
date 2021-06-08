@@ -1,9 +1,7 @@
 @extends('master')
 @section('title', 'Blog')
 @section('content')
-
-<div class="container col-md-10 col-md-offset-2">
-
+<div class="container col-md-6 col-md-offset-2">
     @if (session('status'))
     <div class="alert alert-success">
         {{ session('status') }}
@@ -22,6 +20,7 @@
     </div>
     @endforeach
     @endif
-    {!! $articles->render() !!}
 
+    {!! $articles->render() !!}
+</div>
 @endsection
