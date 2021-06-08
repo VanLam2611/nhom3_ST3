@@ -18,7 +18,6 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Display Name</th>
                     <th>Description</th>
                 </tr>
             </thead>
@@ -26,7 +25,6 @@
                 @foreach($roles as $role)
                 <tr>
                     <td>{!! $role->name !!}</td>
-                    <td>{!! $role->guard_name !!}</td>
                     <td>{!! $role->description !!}</td>
                 </tr>
                 @endforeach
