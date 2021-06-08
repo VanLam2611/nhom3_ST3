@@ -59,7 +59,7 @@ Route::get('/', function () {
 })->middleware('verified');
 Auth::routes(['verify' => true]);
 Route::get('/notify', function () {
-    User::find(1)->notify(new NewuserRegistered);
+    User::find(1)->notify(new NewUserRegistered);
     return view('notify');
 });
 Route::get('/send/email', 'HomeController@mail');
