@@ -13,14 +13,16 @@ use App\Models\Article;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 //Get home for user register
 
 Route::get('/home',function(){
     $article = Article::all();
-    return view('user.header',['article'=>$article]);
+    return view('user.postUser',['article'=>$article]);
 });
+//Detail Articles
+Route::get('/home/detail/{id}',function($id){
+    $article = Article::find($id);
+    return view('user.detailPost',['article'=>$article]);
+});
+
 

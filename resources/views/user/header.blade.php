@@ -32,7 +32,7 @@
 
 			<div id="navigation" class="collapse navbar-collapse flex-column" >
 				<div class="profile-section pt-3 pt-lg-0">
-				    <img class="profile-image mb-3 rounded-circle mx-auto" src="assets/images/profile.png" alt="image" >			
+				    <img class="profile-image mb-3 rounded-circle mx-auto" src="{{url('assets/images/profile.png')}}" alt="image" >			
 					
 					<div class="bio mb-3">Hi, my name is Anthony Doe. Briefly introduce yourself here. You can also provide a link to the about page.<br><a href="about.html">Find out more about me</a></div><!--//bio-->
 					<ul class="social-list list-inline py-3 mx-auto">
@@ -47,7 +47,7 @@
 				
 				<ul class="navbar-nav flex-column text-left">
 					<li class="nav-item active">
-					    <a class="nav-link" href="index.html"><i class="fas fa-home fa-fw mr-2"></i>Blog Home <span class="sr-only">(current)</span></a>
+					    <a class="nav-link" href="{{asset('home')}}"><i class="fas fa-home fa-fw mr-2"></i>Blog Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
 					    <a class="nav-link" href="blog-post.html"><i class="fas fa-bookmark fa-fw mr-2"></i>Blog Post</a>
@@ -70,42 +70,8 @@
     </header>
     
     <div class="main-wrapper">
-	    <section class="cta-section theme-bg-light py-5">
-		    <div class="container text-center">
-			    <h2 class="heading">DevBlog - A Blog Template Made For Developers</h2>
-			    <div class="intro">Welcome to my blog. Subscribe and get my latest blog post in your inbox.</div>
-			    <form class="signup-form form-inline justify-content-center pt-3">
-                    <div class="form-group">
-                        <label class="sr-only" for="semail">Your email</label>
-                        <input type="email" id="semail" name="semail1" class="form-control mr-md-1 semail" placeholder="Enter email">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
-                </form>
-		    </div><!--//container-->
-	    </section>
-	    <section class="blog-list px-3 py-5 p-md-5">
-		    <div class="container">
-				@foreach($article as $value)
-			    <div class="item mb-5">
-				    <div class="media">
-					<!--assets/images/blog/blog-post-thumb-1.jpg-->
-					    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="{{url('uploads')."/".$value->image}}" alt="image">
-					    <div class="media-body">
-						    <h3 class="title mb-1"><a href="blog-post.html">{{$value->title}}</a></h3>
-						    <div class="meta mb-1"><span class="date">Created: {{$value->created_at}}</span><span class="time">5 min read</span><span class="comment"><a href="#">8 comments</a></span></div>
-						    <div class="intro">{{$value->content}}</div>
-						    <a class="more-link" href="blog-post.html">Read more &rarr;</a>
-					    </div><!--//media-body-->
-				    </div><!--//media-->
-			    </div><!--//item-->
-				@endforeach
-			    <nav class="blog-nav nav nav-justified my-5">
-				  <a class="nav-link-prev nav-item nav-link d-none rounded-left" href="#">Previous<i class="arrow-prev fas fa-long-arrow-alt-left"></i></a>
-				  <a class="nav-link-next nav-item nav-link rounded" href="blog-list.html">Next<i class="arrow-next fas fa-long-arrow-alt-right"></i></a>
-				</nav>
-				
-		    </div>
-	    </section>
+		@yield('home')
+	    
 	    <!-- *****CONFIGURE STYLE (REMOVE ON YOUR PRODUCTION SITE)****** -->  
     <div id="config-panel" class="config-panel d-none d-lg-block">
         <div class="panel-inner">
