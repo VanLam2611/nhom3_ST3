@@ -1,47 +1,108 @@
-@extends('main')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('homepost')
+        <title>Nhom 3</title>
 
-    <!--Content-->
-    <div class="content">
-        <div class="container">
-            <div class="row">
-                <div class="col-1">User name:  </div>
-                <div class="col-9">
-                    <?php foreach($post as $value){?>
-                    <div class="post-user">
-                        <div class="name-acc"><i class="fas fa-user-alt"></i> {{$value->getUser->name}}</div>
-                        <br>
-                        <div class="title-post text-secondary">
-                            <h4>{{$value->title}}</h4>
-                        </div>
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-                        <!-- <div class="type-post">Type</div> -->
-                        <div class="content-post">{{$value->content}}</div>
-                        <div class="comment">
-                            <button class="btn btn-primary"><a class="detail" href="{{asset('')}}home/show/{{$value->post_id}}">Show</a></button>
-                            <button class="btn btn-primary"><a class="detail" href="{{asset('')}}home/comment/{{$value->post_id}}">Comment</a></button>
-                        </div>
-                    </div>
-                    <br>
-                    <?php } ?>
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 200;
+                height: 100vh;
+                margin: 0;
+            }
+            .full-height {
+                height: 100vh;
+            }
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+            .position-ref {
+                position: relative;
+            }
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+            .content {
+                text-align: center;
+            }
+            .title {
+                font-size: 84px;
+                color: #467fd0;
+            }
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+            .m-t-lg {
+                margin-top: 60px;
+            }
+            a:hover {
+                color: #7C69EF;
+            }
+        </style>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-16782706-13"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-16782706-13');
+        </script>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Register</a>
+                        @endif
+                    @endauth
                 </div>
-                <div class="col-2">
-                    <div class="all-type">
-                        <h2>ALL TYPE</h2>
-                        <?php foreach($type as $value){ ?>
-                        <div class="type-name">
-                            <a href="">{{$value->type_name}}</a></div>
-                        <?php } ?>
-                        
-                    </div>
+            @endif
 
+            <div class="content">
+                <div class="title m-b-md">
+                    <img src="{{url('uploads/vn.png')}}" width="278px">
+                </div>
+
+                <div class="links">
+                    <a href="{{ backpack_url() }}">Login</a>
+                    <a target="_blank" href="https://backpackforlaravel.com/docs">Docs</a>
+                    <a target="_blank" href="https://backpackforlaravel.com/contact">Contact</a>
+                </div>
+
+                <div class="m-t-lg">
+                    * No front-end pages are provided in this demo. Only the admin panel.
                 </div>
             </div>
         </div>
-    </div>
-    <!--Footer-->
-    <footer>
-        <div class="end-footer">Mọi thắc mắc xin liên hệ nhóm 3 &copy; fit.tdc.edu.vn</div>
-    </footer>
-   @endsection
+    </body>
+</html>
