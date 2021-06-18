@@ -90,7 +90,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <img src="/uploads/vn.png" width="278px">
+                    <img src="{{url('uploads/vn.png')}}" width="278px">
                 </div>
 
                 <div class="links">

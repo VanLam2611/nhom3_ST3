@@ -11,8 +11,8 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use CrudTrait;
-    use HasRoles;
+    // use CrudTrait;
+    // use HasRoles;
     use HasFactory, Notifiable;
 
     /**
