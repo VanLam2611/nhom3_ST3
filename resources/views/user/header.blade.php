@@ -15,12 +15,13 @@
     <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
     
     <!-- Theme CSS --> 
+    
     <link id="theme-style" rel="stylesheet" href="{{url('assets/css/theme-1.css')}}">
+    
 
 </head> 
 
 <body>
-
     <header class="header text-center">	    
         
 	    <h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Anthony's Blog</a></h1>
@@ -50,7 +51,7 @@
 					    <a class="nav-link" href="{{asset('home')}}"><i class="fas fa-home fa-fw mr-2"></i>Blog Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-					    <a class="nav-link" href="blog-post.html"><i class="fas fa-bookmark fa-fw mr-2"></i>Blog Post</a>
+					    <a class="nav-link" href="{{asset('home/create')}}"><i class="fas fa-bookmark fa-fw mr-2"></i>Blog Post</a>
 					</li>
 					<li class="nav-item">
 					    <a class="nav-link" href="about.html"><i class="fas fa-user fa-fw mr-2"></i>About Me</a>
@@ -64,12 +65,37 @@
 		</nav>
         
         <a href="" class="text-danger" target="_blank">Login</a>
-        
-
-    
     </header>
     
     <div class="main-wrapper">
+        <nav class="navbar navbar-expand-sm navbar-light border border-bottom-dark">
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{asset('home')}}">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownId">
+                            @foreach($categories as $value)
+                                <a class="dropdown-item" href="{{asset('')}}home/category/{{$value->id}}">{{$value->name}}</a>
+                            @endforeach
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
 		@yield('home')
 	    
 	    <!-- *****CONFIGURE STYLE (REMOVE ON YOUR PRODUCTION SITE)****** -->  

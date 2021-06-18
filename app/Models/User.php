@@ -15,6 +15,9 @@ class User extends Authenticatable
     // use HasRoles;
     use HasFactory, Notifiable;
 
+    public function articles(){
+        return $this->belongsTo('App\Models\Article', 'id');
+    }
     /**
      * The attributes that are mass assignable.
      *

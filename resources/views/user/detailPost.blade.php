@@ -1,9 +1,9 @@
 @extends('user.header')
 
 @section('home')
-
 <article class="blog-post px-3 py-5 p-md-5">
     <div class="container">
+        <h1>Author: {{$user->name}}</h1>
         <header class="blog-post-header">
             <h1 class="title mb-2">{{$article->title}}</h1>
             <div class="meta mb-3"><span class="date">{{$article->created_at}}</span><span class="time">5 min read</span><span class="comment"><a href="#">4 comments</a></span></div>

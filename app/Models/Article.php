@@ -22,7 +22,7 @@ class Article extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     // protected $guarded = ['id'];
-    protected $fillable = ['slug', 'title', 'content', 'image', 'status', 'category_id', 'featured', 'date'];
+    protected $fillable = ['slug', 'title', 'content', 'image', 'status' , 'user_id' , 'category_id', 'featured', 'date'];
     // protected $hidden = [];
     // protected $dates = [];
     protected $casts = [
@@ -65,6 +65,12 @@ class Article extends Model
     {
         return $this->belongsToMany('App\Models\Tag', 'article_tag');
     }
+
+    public function getUser()
+    {
+        return $this->hasOne('App\Models\User', 'user_id' , 'id');
+    }
+
 
     /*
     |--------------------------------------------------------------------------
