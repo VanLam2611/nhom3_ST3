@@ -6,7 +6,8 @@
         <h1>Author: {{$user->name}}</h1>
         <header class="blog-post-header">
             <h1 class="title mb-2">{{$article->title}}</h1>
-            <div class="meta mb-3"><span class="date">{{$article->created_at}}</span><span class="time">5 min read</span><span class="comment"><a href="#">4 comments</a></span></div>
+            <div class="meta mb-3"><span class="date">{{$article->created_at}}</span><span class="time">5 min
+                    read</span><span class="comment"><a href="#">4 comments</a></span></div>
         </header>
 
         <div class="blog-post-body">
@@ -17,28 +18,18 @@
             <p>{{$article->content}} </p>
 
             <h3 class="mt-5 mb-3">Code Block Example</h3>
-            <p>You can get more info at <a href="https://highlightjs.org/" target="_blank">https://highlightjs.org/</a>. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. </p>
-            <pre>
-					    <code>
-function $initHighlight(block, cls) {
-  try {
-    if (cls.search(/\bno\-highlight\b/) != -1)
-      return process(block, true, 0x0F) +
-             ` class="${cls}"`;
-  } catch (e) {
-    /* handle exception */
-  }
-  for (var i = 0 / 2; i < classes.length; i++) {
-    if (checkCondition(classes[i]) === undefined)
-      console.log('undefined');
-  }
-}
+            <p>You can get more info at <a href="https://highlightjs.org/" target="_blank">https://highlightjs.org/</a>.
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
+                massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
+                felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede
+                justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a,
+                venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
+                Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu,
+                consequat vitae, eleifend ac, enim. </p>
 
-export  $initHighlight;
-					    </code>
-				    </pre>
             <h3 class="mt-5 mb-3">Typography</h3>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+                Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
             <h5 class="my-3">Bullet Points:</h5>
             <ul class="mb-5">
                 <li class="mb-2">Lorem ipsum dolor sit amet consectetuer.</li>
@@ -50,55 +41,24 @@ export  $initHighlight;
                 <li class="mb-2">Aenean commodo ligula eget dolor.</li>
                 <li class="mb-2">Aenean massa cum sociis natoque penatibus.</li>
             </ol>
-            <h5 class="my-3">Quote Example:</h5>
-            <blockquote class="blockquote m-lg-5 py-3 pl-4 px-lg-5">
-                <p class="mb-2">You might not think that programmers are artists, but programming is an extremely creative profession. It's logic-based creativity.</p>
-                <footer class="blockquote-footer">John Romero</footer>
-            </blockquote>
 
-            <h5 class="my-3">Table Example:</h5>
-            <table class="table table-striped my-5">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </table>
 
             <h5 class="mb-3">Embed A Tweet:</h5>
 
             <blockquote class="twitter-tweet" data-lang="en">
-                <p lang="en" dir="ltr">1969:<br>-what&#39;re you doing with that 2KB of RAM?<br>-sending people to the moon<br><br>2017:<br>-what&#39;re you doing with that 1.5GB of RAM?<br>-running Slack</p>&mdash; I Am Devloper (@iamdevloper) <a href="https://twitter.com/iamdevloper/status/926458505355235328?ref_src=twsrc%5Etfw">November 3, 2017</a>
+                <p lang="en" dir="ltr">1969:<br>-what&#39;re you doing with that 2KB of RAM?<br>-sending people to the
+                    moon<br><br>2017:<br>-what&#39;re you doing with that 1.5GB of RAM?<br>-running Slack</p>&mdash; I
+                Am Devloper (@iamdevloper) <a href="https://twitter.com/iamdevloper/status/926458505355235328?ref_src=twsrc%5Etfw">November 3,
+                    2017</a>
             </blockquote>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
 
             <h3 class="mt-5 mb-3">Video Example</h3>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. </p>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+                Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
+                ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. </p>
 
             <div class="embed-responsive embed-responsive-16by9">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/hnCmSXCZEpU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -112,7 +72,33 @@ export  $initHighlight;
         </nav>
 
         <div class="blog-comments-section">
-            <div id="disqus_thread"></div>
+            <div id="myForm">
+                <div id="todo-list"></div>
+            </div>
+        <div id="formModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="formModalLabel">Create Comment</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="myForm" name="myForm" class="form-horizontal" novalidate="">
+                            <div class="form-group">
+                                <label>Content</label>
+                                <input type="text" class="form-control" id="title" name="content"
+                                        placeholder="Enter content" value="">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btn-save" value="add">Add Comment
+                        </button>
+                        <input type="hidden" id="todo_id" name="todo_id" value="0">
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- <div id="disqus_thread"></div> -->
             <script>
                 /**
                  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT 
@@ -155,17 +141,6 @@ export  $initHighlight;
     </div>
     <!--//container-->
 </article>
-
-<section class="promo-section theme-bg-light py-5 text-center">
-    <div class="container">
-        <h2 class="title">Promo Section Heading</h2>
-        <p>You can use this section to promote your side projects etc. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </p>
-        <figure class="promo-figure">
-            <a href="https://made4dev.com" target="_blank"><img class="img-fluid" src="{{url('assets/images/promo-banner.jpg')}}" alt="image"></a>
-        </figure>
-    </div>
-    <!--//container-->
-</section>
 <!--//promo-section-->
 
 @endsection

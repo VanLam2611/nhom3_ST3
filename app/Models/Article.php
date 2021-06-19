@@ -61,6 +61,11 @@ class Article extends Model
         return $this->belongsTo('App\Models\Category', 'category_id');
     }
 
+    public function comments()
+    {
+        return $this->belongsTo('App\Models\Comment', 'id');
+    }
+
     public function tags()
     {
         return $this->belongsToMany('App\Models\Tag', 'article_tag');

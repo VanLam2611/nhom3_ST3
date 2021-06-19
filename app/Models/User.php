@@ -18,6 +18,9 @@ class User extends Authenticatable
     public function articles(){
         return $this->belongsTo('App\Models\Article', 'id');
     }
+    public function comments(){
+        return $this->belongsTo('App\Models\Comment', 'id');
+    }
     /**
      * The attributes that are mass assignable.
      *
