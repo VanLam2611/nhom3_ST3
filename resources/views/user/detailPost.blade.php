@@ -78,7 +78,7 @@
           <div class="item-chat border border-secondary p-2">
               @if($comment != null)
                 @foreach($comment as $value)
-                    <div class="comments">{{$value->content}}</div>
+                    <div class="comments"><b><u>{{Session::get('username')}}</u></b>: {{$value->content}} <span class="small text-primary ml-1"><i>{{$value->created_at}}</i></span></div>
                 @endforeach
                 @else
               @endif

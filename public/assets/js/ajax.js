@@ -16,7 +16,7 @@ $(".save-data").click(function(event){
         if(response) {
           $('.success').text(response.success);
           $("#ajaxform")[0].reset();
-          $(".item-chat").append("<div class='comments'>" + response.data.name +"</div>");
+          $(".item-chat").append("<div class='comments'><b><u>Me</u></b>:" + response.data.name +"</div>");
         }
       },
      });
