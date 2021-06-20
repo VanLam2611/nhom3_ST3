@@ -26,8 +26,6 @@ Route::get('/home/login', function () {
     return view('user.login.login');
 });
 Route::post('/home/login', function (Request $request) {
-    $article = Article::all();
-    $categories = Category::all();
     $user = User::all();
     // Kiểm tra dữ liệu nhập vào
     // Nếu dữ liệu hợp lệ sẽ kiểm tra trong csdl
@@ -66,13 +64,20 @@ Route::get('/home', function () {
 //Detail Articles
 Route::get('/home/detail/{id}', function ($id) {
     $article = Article::find($id);
+    $comment = Comment::all();
+    $getComment = array();
+    foreach($comment as $value){
+        if($value->article_id == $article->id){
+            array_push($getComment, $value);
+        }
+    }
     $user = User::all();
     foreach ($user as $value) {
         if ($article->user_id == $value->id) {
             $getUser = $value;
         }
     }
-    return view('user.detailPost', ['article' => $article, 'user' => $getUser]);
+    return view('user.detailPost', ['article' => $article, 'user' => $getUser, 'comment'=>$getComment]);
 });
 //Get post by category
 Route::get('/home/category/{id}', function ($id) {
@@ -96,11 +101,11 @@ Route::get('home/create', function () {
     }
 });
 //Add comment
-Route::post('/home/category/{id}',function(Request $request){
+Route::post('/home/category/{id}', function (Request $request) {
     $temp = Session::get('user_id');
     if ($temp != null) {
         $url = $_SERVER['PHP_SELF'];
-        $id = $url.substr(-1,1)*1;
+        $id = $url . substr(-1, 1) * 1;
         $data = $request->validate([
             'content' => 'required|max:255',
             'article_id' => $id,
@@ -108,6 +113,24 @@ Route::post('/home/category/{id}',function(Request $request){
         ]);
         $comment = Comment::create($data);
         return Response::json($comment);
+    } else {
+        return Redirect::to('/home/login')->send();
+    }
+});
+
+Route::post('/home/detail/{id}', function (Request $request) {
+    $url = $_SERVER['REQUEST_URI'];
+    $article_ids = substr($url,-1, 1)*1;
+    $temp = Session::get('user_id');
+    if ($temp != null) {
+        $comment = new Comment;
+        $comment->content = $request->name;
+        $comment->user_id = Session::get('user_id');
+        $comment->article_id = $article_ids;
+        $comment->save();
+        $data = $request->all();
+        #create or update your data here
+        return response()->json(['success' => 'Ajax request submitted successfully', 'data' => $data]);
     } else {
         return Redirect::to('/home/login')->send();
     }

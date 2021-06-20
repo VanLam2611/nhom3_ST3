@@ -72,31 +72,27 @@
         </nav>
 
         <div class="blog-comments-section">
-            <div id="myForm">
-                <div id="todo-list"></div>
+        <div class="container">
+          <span class="success" style="color:green; margin-top:10px; margin-bottom: 10px;"></span>
+          <h3>All Comment</h3>
+          <div class="item-chat border border-secondary p-2">
+              @if($comment != null)
+                @foreach($comment as $value)
+                    <div class="comments">{{$value->content}}</div>
+                @endforeach
+                @else
+              @endif
+          </div>
+        <form id="ajaxform">
+            <div class="form-group">
+                <label>Comment:</label>
+                <input type="text" name="name" class="form-control" placeholder="Enter your Comment" required>
             </div>
-        <div id="formModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="formModalLabel">Create Comment</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form id="myForm" name="myForm" class="form-horizontal" novalidate="">
-                            <div class="form-group">
-                                <label>Content</label>
-                                <input type="text" class="form-control" id="title" name="content"
-                                        placeholder="Enter content" value="">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="btn-save" value="add">Add Comment
-                        </button>
-                        <input type="hidden" id="todo_id" name="todo_id" value="0">
-                    </div>
-                </div>
+            <div class="form-group">
+                <button class="btn btn-success save-data">Save</button>
             </div>
+        </form>
+    </div>
         </div>
             <!-- <div id="disqus_thread"></div> -->
             <script>

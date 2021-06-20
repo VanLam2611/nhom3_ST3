@@ -14,6 +14,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Blog Template">
     <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="shortcut icon" href="favicon.ico">
 
     <!-- FontAwesome JS-->
@@ -21,7 +22,16 @@ session_start();
 
     <!-- Theme CSS -->
     <link id="theme-style" rel="stylesheet" href="{{url('assets/css/theme-1.css')}}">
-
+    <style>
+    .comments{
+        display: ruby;
+        background: indianred;
+        color: #fff !important;
+        margin: 10px 0;
+        padding: 20px;
+        border-radius: 12px;
+    }
+    </style>
 </head>
 
 <body>
@@ -38,7 +48,6 @@ session_start();
             </a></h1>
 
         <nav class="navbar navbar-expand-lg navbar-dark">
-
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -164,7 +173,7 @@ session_start();
     <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
     <script src="{{url('assets/js/demo/style-switcher.js')}}"></script>
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
+    <script src="{{url('assets/js/ajax.js')}}"></script>
 </body>
 
 </html>
