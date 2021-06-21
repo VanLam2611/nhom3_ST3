@@ -105,7 +105,7 @@ return [
     // change background color with bg-dark, bg-primary, bg-secondary, bg-danger, bg-warning, bg-success, bg-info, bg-blue, bg-light-blue, bg-indigo, bg-purple, bg-pink, bg-red, bg-orange, bg-yellow, bg-green, bg-teal, bg-cyan, bg-white
 
     // Developer or company name. Shown in footer.
-    'developer_name' => 'DevOpsThinh',
+    'developer_name' => 'TDC Students',
 
     // Developer website. Link in footer. Type false if you want to hide it.
     'developer_link' => 'https://github.com/DevOpsThinh',
@@ -221,7 +221,8 @@ return [
     'middleware_class' => [
         App\Http\Middleware\CheckIfAdmin::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        //\Backpack\CRUD\app\Http\Middleware\UseBackpackAuthGuardInsteadOfDefaultAuthGuard::class,
+        Backpack\CRUD\app\Http\Middleware\UseBackpackAuthGuardInsteadOfDefaultAuthGuard::class,
+        //Backpack\Base\app\Http\Middleware\UseBackpackAuthGuardInsteadOfDefaultAuthGuard::class,
     ],
 
     // Alias for that middleware
@@ -260,6 +261,7 @@ return [
     // if it exists, otherwise it will load it from the default namespace ("backpack::").
 
     'view_namespace' => 'backpack::',
+    'view_namespace' => 'blog::',
 
     // EXAMPLE: if you create a new folder in resources/views/vendor/myname/mypackage,
     // your namespace would be the one below. IMPORTANT: in this case the namespace ends with a dot.

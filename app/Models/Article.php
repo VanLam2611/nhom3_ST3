@@ -95,6 +95,11 @@ class Article extends Model
         return $this->title;
     }
 
+    public function getID()
+    {
+        return $this->id;
+    }
+
     /*
     |--------------------------------------------------------------------------
     | MUTATORS

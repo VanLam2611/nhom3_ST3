@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 
+use function PHPUnit\Framework\isTrue;
+
 class CheckIfAdmin
 {
     /**
@@ -28,8 +30,17 @@ class CheckIfAdmin
      */
     private function checkIfUserIsAdmin($user)
     {
-        // return ($user->is_admin == 1);
-        return true;
+        $isTrue = false;
+        if ($user->hasrole('super_admin')) {
+            $isTrue = true;
+        } elseif ($user->hasrole('admin')) {
+            $isTrue = true;
+        } elseif ($user->hasrole('manager')) {
+            $isTrue = true;
+        } elseif ($user->hasrole('writer')) {
+            $isTrue = true;
+        } 
+        return $isTrue;
     }
 
     /**
