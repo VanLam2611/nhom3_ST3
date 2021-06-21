@@ -17,7 +17,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $articles = Article::orderBy('date','desc')->paginate(4);
+        $articles = Article::orderBy('date','desc')->paginate(10);
         return view('blog.index', compact('articles'));
     }
      /**
