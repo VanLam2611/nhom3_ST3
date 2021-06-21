@@ -1,5 +1,5 @@
 @extends('shared.header')
-
+@section('title', 'View a article')
 @section('home')
 <article class="blog-post px-3 py-5 p-md-5">
     <div class="container">
@@ -7,7 +7,7 @@
         <header class="blog-post-header">
             <h1 class="title mb-2" style="text-align: center; color: rgba(8, 4, 8, 0.589)">{{$article->title}}</h1>
             <div class="meta mb-3" style="text-align: center"><span class="date">{{$article->date}}</span><span class="time">5 min
-                    read</span><span class="comment"><a href="#">4 comments</a></span></div>
+                    read</span><span class="comment"><a href="#">{{$count}} comments</a></span></div>
         </header>
 
         <div class="blog-post-body">
@@ -16,11 +16,20 @@
                 display: block;">
                 <figcaption class="mt-2 text-center image-caption">Image Credit By: Nhom 3</figcaption>
             </figure>
-            <div class="card mt-4">
+            <div class="card mt-5">
                 <div class="card-body">
-                    <p> {{ $article->content }} </p>
+                     {{ $article->content }}
                 </div>
+                <div class="clearfix"></div>
             </div>
+
+            @foreach($comments as $comment)
+                <div class="card mt-4">
+                    <div class="card-body">
+                        {{ $comment->content }}
+                    </div>
+                </div>
+            @endforeach
 
             <div class="card mt-4">
                 <div class="card-body">

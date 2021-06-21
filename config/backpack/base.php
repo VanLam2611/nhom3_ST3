@@ -108,7 +108,7 @@ return [
     'developer_name' => 'TDC Students',
 
     // Developer website. Link in footer. Type false if you want to hide it.
-    'developer_link' => 'https://github.com/DevOpsThinh',
+    'developer_link' => '/',
 
     // Show powered by Laravel Backpack in the footer? true/false
     'show_powered_by' => false,

@@ -9,11 +9,17 @@ use Illuminate\Notifications\Notifiable;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use CrudTrait;
     use HasRoles;
     use HasFactory, Notifiable;
+
+    /*
+    |--------------------------------------------------------------------------
+    | GLOBAL VARIABLES
+    |--------------------------------------------------------------------------
+    */
 
     /**
      * The attributes that are mass assignable.
@@ -44,4 +50,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+     /*
+    |--------------------------------------------------------------------------
+    | RELATIONS
+    |--------------------------------------------------------------------------
+    */
+
+    public function comment()
+    {
+        return $this->hasOne('App\Models\Comment');
+    }
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
 }

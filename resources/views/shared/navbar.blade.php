@@ -23,14 +23,11 @@
                     Member
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    @role('admin')
-                    <a class="dropdown-item" href='{{ backpack_url('dashboard') }}'>Admin</a>   
-                    @else
-                    @endrole
+        
+                    <a class="dropdown-item" href='{{ backpack_url('dashboard') }}'>Admin</a>
+                    <a class="dropdown-item" href='{{ backpack_url('login') }}'>Login</a>
                     <a class="dropdown-item" href='{{ backpack_url('logout') }}'>Logout</a>
                     <a class="dropdown-item" href='{{ backpack_url('register') }}'>Register</a>
-                    <a class="dropdown-item" href='{{ backpack_url('login') }}'>Login</a>
-                </div>
             </li>
         </ul>
     </div>

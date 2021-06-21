@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Comment;
 
 
 class BlogController extends Controller
@@ -16,9 +17,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        $articles = Article::paginate(5);
-        return view('blog.index', compact('articles', 'categories'));
+        $articles = Article::orderBy('date','desc')->paginate(4);
+        return view('blog.index', compact('articles'));
     }
      /**
      * Display the specified resource.
@@ -29,9 +29,8 @@ class BlogController extends Controller
     public function show($slug)
     {
         $article = Article::whereSlug($slug)->firstOrFail();
-        return view('blog.show', compact('article'));
-        // $comments = $article->comments()->get();
-        // return view('blog.show', compact('article', 'comments'));
+        $comments = $article->comments()->get();
+        $count = $article->comments()->count();
+        return view('blog.show', compact('article', 'comments', 'count'));
     }
-  
 }

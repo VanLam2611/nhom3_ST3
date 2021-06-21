@@ -66,6 +66,10 @@ class Article extends Model
         return $this->belongsToMany('App\Models\Tag', 'article_tag');
     }
 
+    public function comments() {
+        return $this->morphMany('App\Models\Comment', 'article');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES
@@ -98,6 +102,10 @@ class Article extends Model
     public function getID()
     {
         return $this->id;
+    }
+
+    public function getTitle() {
+        return $this->title;
     }
 
     /*
