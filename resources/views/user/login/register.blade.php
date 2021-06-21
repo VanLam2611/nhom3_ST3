@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Session;
+
 session_start();
 
 ?>
@@ -6,7 +9,7 @@ session_start();
 <html lang="en">
 
 <head>
-	<title>Glassy Login Form A Responsive Widget Template :: w3layouts</title>
+	<title>Glassy Register Form A Responsive Widget Template :: w3layouts</title>
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -932,7 +935,7 @@ session_start();
 <body>
 	<!--header-->
 	<div class="header-w3l">
-		<h1>Glassy Login Form</h1>
+		<h1>Glassy Register Form</h1>
 	</div>
 	<!--//header-->
 	<!--main-->
@@ -940,8 +943,14 @@ session_start();
 		<!--form-stars-here-->
 		<div class="wthree-form">
 			<h2>Fill out the form below to login</h2>
-			<form action="{{asset('home/login')}}" method="post">
+			<form action="{{asset('home/register')}}" method="post">
 			{{csrf_field()}}
+                <div class="form-sub-w3">
+					<input type="text" name="name" placeholder="Name " required="" />
+					<div class="icon-w3">
+						<i class="fa fa-user" aria-hidden="true"></i>
+					</div>
+				</div>
 				<div class="form-sub-w3">
 					<input type="text" name="username" placeholder="Username " required="" />
 					<div class="icon-w3">
@@ -954,25 +963,16 @@ session_start();
 						<i class="fa fa-unlock-alt" aria-hidden="true"></i>
 					</div>
 				</div>
-				<label class="anim">
-					<input type="checkbox" class="checkbox">
-					<span>Remember Me</span>
-					<a href="#">Forgot Password</a>
-				</label>
-				<label class="anim">
-
-					<a href="{{asset('home/register')}}">Sign up</a>
-				</label>
                 <label class="anim">
 
 					<a href="{{asset('home')}}">Home</a>
 				</label>
 				<div class="clear"></div>
 				<div class="submit-agileits">
-					<input type="submit" value="Login">
+					<input type="submit" value="Register">
 				</div>
 			</form>
-
+        
 		</div>
 		<!--//form-ends-here-->
 

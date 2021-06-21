@@ -36,6 +36,7 @@ Route::post('/home/login', function (Request $request) {
             Session::put('username', $value->name);
             Session::put('email', $value->email);
             Session::put('address', $value->address);
+            if($value)
             return Redirect::to('/home');
         }
     }
@@ -52,11 +53,25 @@ Route::get('home/logout', function () {
     Session::put('user_id', null);
     return Redirect::to('/home/login');
 });
+//Register
+Route::get('home/register',function(){
+    return view('user.login.register');
+});
+Route::post('home/register',function(Request $request){
+    $user = new User;
+    $user->name = $request->name;
+    $user->email = $request->username;
+    $user->password = bcrypt($request->password);
+    $user->save();
+    Session::put('signup',"Sign Up Success");
+    return Redirect::to('home/login');
+});
+
 //Get home for user register
 
 Route::get('/home', function () {
 
-    $article = Article::all();
+    $article = Article::simplePaginate(3);
     $categories = Category::all();
     Session::put('categories', $categories);
     return view('user.postUser', ['article' => $article]);
@@ -65,11 +80,25 @@ Route::get('/home', function () {
 Route::get('/home/detail/{id}', function ($id) {
     $article = Article::find($id);
     $comment = Comment::all();
+    $user = User::all();
+    $data = [
+        'name'=> [],
+        'comment' => []
+    ];
     $getComment = array();
+    $getUsers = array();
     foreach($comment as $value){
         if($value->article_id == $article->id){
             array_push($getComment, $value);
+            array_push($data['comment'], $value->content);
+            foreach($user as $users){
+                if($users->id == $value->user_id){
+                    array_push($getUsers, $users->name);
+                    array_push($data['name'], $users->name);
+                }
+            }
         }
+        
     }
     $user = User::all();
     foreach ($user as $value) {
@@ -77,7 +106,8 @@ Route::get('/home/detail/{id}', function ($id) {
             $getUser = $value;
         }
     }
-    return view('user.detailPost', ['article' => $article, 'user' => $getUser, 'comment'=>$getComment]);
+    return view('user.detailPost', ['article' => $article, 'user' => $getUser, 'data'=>$data]);
+    //return view('user.detailPost', ['article' => $article, 'user' => $getUser, 'comment'=>$getComment, 'userComment'=>$getUsers]);
 });
 //Get post by category
 Route::get('/home/category/{id}', function ($id) {
@@ -90,15 +120,6 @@ Route::get('/home/category/{id}', function ($id) {
         }
     }
     return view('user.categoryBlog', ['article' => $getArticle]);
-});
-//Create Post
-Route::get('home/create', function () {
-    $temp = Session::get('user_id');
-    if ($temp != null) {
-        return view('user.createPost');
-    } else {
-        return Redirect::to('/home/login')->send();
-    }
 });
 //Add comment
 Route::post('/home/category/{id}', function (Request $request) {
@@ -134,4 +155,53 @@ Route::post('/home/detail/{id}', function (Request $request) {
     } else {
         return Redirect::to('/home/login')->send();
     }
+});
+//Get profile of user
+Route::get('home/profile/{id}',function($id){
+    $user = User::find($id);
+    $article = Article::all();
+    $getArticles = array();
+    foreach($article as $value){
+        if($value->user_id == $user->id){
+            array_push($getArticles,$value);
+        }
+    }
+    return view('user.profileUser',['user'=>$user,'article'=>$getArticles]);
+});
+//Create Post
+Route::get('home/create', function () {
+    $temp = Session::get('user_id');
+    if ($temp != null) {
+        return view('user.createPost');
+    } else {
+        return Redirect::to('/home/login')->send();
+    }
+});
+//Create post for user
+Route::post('home/create',function(Request $request){
+    $article = new Article;
+    $article->title = $request->title;
+    $article->category_id = $request->type_id;
+    $article->slug = "https://toidicode.com/upload-files-trong-laravel-43.html";
+    $article->content = $request->content;
+    $article->user_id = Session::get('user_id');
+    //Kiểm tra file
+    if ($request->hasFile('fileUpload')){
+        $file = $request->fileUpload;
+        $article->image = $file->getClientOriginalName();
+        $file->move('uploads', $file->getClientOriginalName());
+    }
+    else{
+        $article->image = "TDC.png";
+    }
+    $article->status = $request->status;
+    $article->featured = $request->feature;
+    $article->save();
+    if($article){
+        Session::put('message',"The correct successful!");
+    }
+    else{
+        Session::put('message',"The created of the article is fail!");
+    }
+    return Redirect::to('home/create');
 });

@@ -22,6 +22,7 @@ session_start();
 
     <!-- Theme CSS -->
     <link id="theme-style" rel="stylesheet" href="{{url('assets/css/theme-1.css')}}">
+    
     <style>
     .comments{
         display: ruby;
@@ -31,12 +32,13 @@ session_start();
         padding: 20px;
         border-radius: 12px;
     }
+    
     </style>
 </head>
 
 <body>
     <header class="header text-center">
-        <h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">
+        <h1 class="blog-name pt-lg-4 mb-0"><a href="{{asset('')}}home/profile/{{Session::get('user_id')}}">
                 <?php
                 $username = Session::get('username');
                 if ($username) {
@@ -82,7 +84,7 @@ session_start();
                         <a class="nav-link" href="{{asset('home/create')}}"><i class="fas fa-bookmark fa-fw mr-2"></i>Blog Post</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html"><i class="fas fa-user fa-fw mr-2"></i>About Me</a>
+                        <a class="nav-link" href="{{asset('')}}home/profile/{{Session::get('user_id')}}"><i class="fas fa-user fa-fw mr-2"></i>About Me</a>
                     </li>
                 </ul>
 

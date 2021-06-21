@@ -65,74 +65,71 @@
             </div>
 
         </div>
-
-        <nav class="blog-nav nav nav-justified my-5">
-            <a class="nav-link-prev nav-item nav-link rounded-left" href="index.html">Previous<i class="arrow-prev fas fa-long-arrow-alt-left"></i></a>
-            <a class="nav-link-next nav-item nav-link rounded-right" href="blog-list.html">Next<i class="arrow-next fas fa-long-arrow-alt-right"></i></a>
-        </nav>
-
+        <hr>
         <div class="blog-comments-section">
-        <div class="container">
-          <span class="success" style="color:green; margin-top:10px; margin-bottom: 10px;"></span>
-          <h3>All Comment</h3>
-          <div class="item-chat border border-secondary p-2">
-              @if($comment != null)
-                @foreach($comment as $value)
-                    <div class="comments"><b><u>{{Session::get('username')}}</u></b>: {{$value->content}} <span class="small text-primary ml-1"><i>{{$value->created_at}}</i></span></div>
-                @endforeach
-                @else
-              @endif
-          </div>
-        <form id="ajaxform">
-            <div class="form-group">
-                <label>Comment:</label>
-                <input type="text" name="name" class="form-control" placeholder="Enter your Comment" required>
+            <div class="container">
+                <span class="success" style="color:green; margin-top:10px; margin-bottom: 10px;"></span>
+                <h3>All Comment</h3>
+                <div class="item-chat border border-secondary p-2">
+                
+                    @if($data != null)
+                    <?php for ($i=0; $i < count($data['name']); $i++) { 
+                    ?>
+                    <div class="comments"><b><u>{{$data['name'][$i]}}</u></b>: {{$data['comment'][$i]}} <span class="small text-primary ml-1"><i></i></span></div>
+                    <?php } ?>
+                    @else
+                    @endif
+                </div>
+                <form id="ajaxform">
+                    <div class="form-group">
+                        <label>Comment:</label>
+                        <input type="text" name="name" class="form-control" placeholder="Enter your Comment" required>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success save-data">Save</button>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <button class="btn btn-success save-data">Save</button>
-            </div>
-        </form>
+        </div>
+        <!-- <div id="disqus_thread"></div> -->
+        <script>
+            /**
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT 
+             *  THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR 
+             *  PLATFORM OR CMS.
+             *  
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: 
+             *  https://disqus.com/admin/universalcode/#configuration-variables
+             */
+            /*
+            var disqus_config = function () {
+                // Replace PAGE_URL with your page's canonical URL variable
+                this.page.url = PAGE_URL;  
+                
+                // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                this.page.identifier = PAGE_IDENTIFIER; 
+            };
+            */
+
+            (function() { // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+                var d = document,
+                    s = d.createElement('script');
+
+                // IMPORTANT: Replace 3wmthemes with your forum shortname!
+                s.src = 'https://3wmthemes.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>
+            Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript" rel="nofollow">
+                comments powered by Disqus.
+            </a>
+        </noscript>
     </div>
-        </div>
-            <!-- <div id="disqus_thread"></div> -->
-            <script>
-                /**
-                 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT 
-                 *  THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR 
-                 *  PLATFORM OR CMS.
-                 *  
-                 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: 
-                 *  https://disqus.com/admin/universalcode/#configuration-variables
-                 */
-                /*
-                var disqus_config = function () {
-                    // Replace PAGE_URL with your page's canonical URL variable
-                    this.page.url = PAGE_URL;  
-                    
-                    // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                    this.page.identifier = PAGE_IDENTIFIER; 
-                };
-                */
-
-                (function() { // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
-                    var d = document,
-                        s = d.createElement('script');
-
-                    // IMPORTANT: Replace 3wmthemes with your forum shortname!
-                    s.src = 'https://3wmthemes.disqus.com/embed.js';
-
-                    s.setAttribute('data-timestamp', +new Date());
-                    (d.head || d.body).appendChild(s);
-                })();
-            </script>
-            <noscript>
-                Please enable JavaScript to view the
-                <a href="https://disqus.com/?ref_noscript" rel="nofollow">
-                    comments powered by Disqus.
-                </a>
-            </noscript>
-        </div>
-        <!--//blog-comments-section-->
+    <!--//blog-comments-section-->
 
     </div>
     <!--//container-->
