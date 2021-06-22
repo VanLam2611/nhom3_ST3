@@ -98,7 +98,6 @@ Route::get('/home/detail/{id}', function ($id) {
                 }
             }
         }
-        
     }
     $user = User::all();
     foreach ($user as $value) {
