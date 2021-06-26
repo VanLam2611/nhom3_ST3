@@ -30,7 +30,7 @@
                     </div>
                 </div>
             @endforeach
-
+            @role('member')
             <div class="card mt-4">
                 <div class="card-body">
                     <form method="post" action="/comment">
@@ -66,6 +66,7 @@
                     </form>
                 </div>
             </div>
+            @endrole
         <!--//blog-comments-section-->
 
     </div>

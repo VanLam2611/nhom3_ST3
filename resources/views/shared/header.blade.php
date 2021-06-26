@@ -59,14 +59,9 @@ session_start();
                         <a class="nav-link" href="/about"><i class="fas fa-user fa-fw mr-2"></i>About Us</a>
                     </li>
                 </ul>
-
-                <div class="my-2 my-md-3">
-                    <a class="btn btn-primary" href='{{ backpack_url('login') }}' target="_blank">Login</a>
-                </div>
             </div>
         </nav>
     </header>
-
     <div class="main-wrapper">
         <nav class="navbar navbar-expand-sm navbar-light border border-bottom-dark">
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">

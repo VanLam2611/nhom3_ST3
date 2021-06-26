@@ -21,13 +21,11 @@ Route::post('/comment', 'CommentController@newComment');
 
 Route::get('/blog', 'BlogController@index');
 Route::get('/blog/{slug?}', 'BlogController@show');
-Route::get('/blog/{title?}', 'BlogController@search');
 
-Auth::routes();
 Route::get('/', function () {
     return view('home');
     })->middleware('verified');
-    Auth::routes(['verify' => true]);
+Auth::routes(['verify' => true]);
 
 Route::get('/send/email', 'HomeController@mail');
 
@@ -35,7 +33,5 @@ Route::get('/notify', function () {
     User::find(1)->notify(new NewUserRegistered);
     return view('notify');
     });
-
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
